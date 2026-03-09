@@ -1,0 +1,58 @@
+{
+    "nav": {
+        "home": "Home",
+        "services": "Services",
+        "about": "About",
+        "gallery": "Gallery",
+        "contact": "Contact",
+        "bookNow": "Book Now"
+    },
+    "hero": {
+        "title": "ONECARS",
+        "subtitle": "Elite Automotive Performance Center",
+        "bookService": "Book a Service",
+        "exploreServices": "Explore Services",
+        "marquee": "EXPERIENCE LUXURY AUTOCARE • EXCELLENCE IN EVERY DETAIL"
+    },
+    "about": {
+        "title": "Unrivaled Expertise",
+        "description": "With over 15+ years of experience in luxury car maintenance, we bring unparalleled trust and skill to every vehicle.",
+        "stats": {
+            "years": "15+ Years Experience",
+            "cars": "10,000+ Cars Serviced",
+            "trust": "Trust & Skill"
+        }
+    },
+    "services": {
+        "title": "Our Services",
+        "diagnostics": "Computer Diagnostics",
+        "oil": "Oil & Fluids",
+        "brakes": "Brake Systems",
+        "transmission": "Transmissions",
+        "ac": "AC Systems",
+        "full": "Full Service",
+        "details": "Details",
+        "includes": "What does this service include?"
+    },
+    "gallery": {
+        "title": "Our Workshop"
+    },
+    "reviews": {
+        "title": "Client Testimonials"
+    },
+    "contact": {
+        "title": "Get In Touch",
+        "hours": "Operating Hours",
+        "name": "Name",
+        "email": "Email",
+        "message": "Message",
+        "send": "Send Message"
+    },
+    "footer": {
+        "rights": "All rights reserved.",
+        "developedBy": "Developed by OneCars Team"
+    },
+    "common": {
+        "backHome": "Back to Home"
+    }
+}

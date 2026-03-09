@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600;700&family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-primary-gold: #D4AF37;
+  --color-primary-blue: #00BFFF;
+  --font-sans: "Space Grotesk", "Inter", sans-serif;
+  --font-heading: "Bebas Neue", "Space Grotesk", sans-serif;
+  --font-arabic: "Alexandria", sans-serif;
+}
+
+@layer base {
+  :root {
+    /* Gold in light mode: darker amber for visibility on white */
+    --gold: #8B6914;
+  }
+
+  .dark {
+    /* Gold in dark mode: bright classic gold */
+    --gold: #D4AF37;
+  }
+
+  body {
+    @apply bg-white text-black font-sans antialiased overflow-x-hidden transition-colors duration-300;
+  }
+
+  .dark body {
+    @apply bg-[#0a0a0c] text-white;
+  }
+
+  /* RTL Support for Arabic Font */
+  [dir="rtl"] body {
+    @apply font-arabic;
+  }
+
+  [dir="rtl"] h1,
+  [dir="rtl"] h2,
+  [dir="rtl"] h3,
+  [dir="rtl"] h4,
+  [dir="rtl"] h5,
+  [dir="rtl"] h6 {
+    @apply font-arabic;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading tracking-tight;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/70 dark:bg-white/5 backdrop-blur-md border border-black/10 dark:border-white/10;
+  }
+
+  .glass-dark {
+    @apply bg-white/90 dark:bg-black/40 backdrop-blur-lg border border-black/5 dark:border-white/5 shadow-sm;
+  }
+
+  .text-gradient-gold {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#D4AF37] to-[#FFF8DC];
+  }
+
+  .text-gradient-blue {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#00BFFF] to-[#87CEFA];
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(220 50% 6%);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* ─── Premium Text Animations ─────────────────────────────────── */
+
+/* 1. SHIMMER: gold highlight sweeping across text */
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.text-shimmer {
+  background: linear-gradient(90deg,
+      #D4AF37 0%, #FFF8DC 30%, #D4AF37 50%, #B8860B 70%, #D4AF37 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 4s linear infinite;
+}
+
+/* Light mode shimmer - darker tones */
+:root:not(.dark) .text-shimmer {
+  background: linear-gradient(90deg,
+      #8B6914 0%, #C9A227 30%, #8B6914 50%, #5C4209 70%, #8B6914 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 4s linear infinite;
+}
+
+/* 2. GRADIENT SHIFT: cycles through gold–white–gold */
+@keyframes gradientShift {
+
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.text-gradient-animate {
+  background: linear-gradient(270deg, #D4AF37, #FFF8DC, #00BFFF, #D4AF37);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientShift 6s ease infinite;
+}
+
+/* 3. FLOAT: subtle up-down motion for badges/labels */
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* 4. PULSE GLOW: text glow pulse for headings */
+@keyframes pulseGold {
+
+  0%,
+  100% {
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+  }
+
+  50% {
+    text-shadow: 0 0 25px rgba(212, 175, 55, 0.5), 0 0 5px rgba(212, 175, 55, 0.3);
+  }
+}
+
+.dark .text-pulse-gold {
+  animation: pulseGold 3s ease-in-out infinite;
+}
+
+/* 5. SLIDE UP REVEAL for content blocks */
+@keyframes slideUpReveal {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-up {
+  animation: slideUpReveal 0.7s ease-out forwards;
+}
+
+/* 6. LETTER SPACING EXPAND on hover */
+.text-expand {
+  letter-spacing: 0.1em;
+  transition: letter-spacing 0.4s ease;
+}
+
+.text-expand:hover {
+  letter-spacing: 0.25em;
+}
